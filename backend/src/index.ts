@@ -1,25 +1,27 @@
-// import express from "express";
-// import dotenv from "dotenv";
+import express from "express";
+import dotenv from "dotenv";
+import { clerkMiddleware } from "@clerk/express";
 
-// dotenv.config();
+dotenv.config();
 
-// const app = express();
+const app = express();
 
-// app.use(express.json());
+app.use(clerkMiddleware());
+app.use(express.json());
 
-// const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5000;
 
-// app.listen(PORT, () => {
-//   console.log(`Server is running on http://localhost:${PORT}`);
-// });
+app.listen(PORT, () => {
+  console.log(`Server is running on http://localhost:${PORT}`);
+});
 
 // import { StreamClient } from "@stream-io/node-sdk";
 // or
-const { StreamClient } = require("@stream-io/node-sdk");
+// const { StreamClient } = require("@stream-io/node-sdk");
 
-const apiKey = process.env.API_KEY;
-const secret = process.env.API_SECRET;
-const streamClient = new StreamClient(apiKey, secret);
+// const apiKey = process.env.API_KEY;
+// const secret = process.env.API_SECRET;
+// const streamClient = new StreamClient(apiKey, secret);
 
 // optionally add timeout to API requests
 // the default timeout is 3000ms
