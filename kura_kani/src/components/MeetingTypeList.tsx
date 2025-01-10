@@ -12,7 +12,7 @@ import { Textarea } from "./ui/textarea";
 import ReactDatePicker from "react-datepicker";
 
 import { Input } from "./ui/input";
-import { useRouteError } from "react-router-dom";
+// import { useRouteError } from "react-router-dom";
 import { useUser } from "@clerk/clerk-react";
 import MeetingModal from "./MeetingModals";
 import { useToast } from "@/hooks/use-toast";
@@ -24,7 +24,7 @@ const initialValues = {
 };
 
 const MeetingTypeList = () => {
-  const router = useRouteError();
+  // const router = useRouteError();
   const [meetingState, setMeetingState] = useState<
     "isScheduleMeeting" | "isJoiningMeeting" | "isInstantMeeting" | undefined
   >(undefined);
