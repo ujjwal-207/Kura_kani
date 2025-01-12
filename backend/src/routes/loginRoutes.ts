@@ -1,8 +1,11 @@
 import "dotenv/config";
 import express from "express";
 import { clerkClient, requireAuth } from "@clerk/express";
-import { signIn } from "../controllers/loginControllers";
+
+import { token } from "../controllers/streamClient";
 
 const router = express.Router();
 
-router.get("/sign-in", signIn);
+router.get("/token", token);
+
+export default router;

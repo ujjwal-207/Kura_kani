@@ -10,6 +10,14 @@ import {
 import { Button } from "./ui/button";
 
 const Navbar = () => {
+  const handelClick = () => {
+    async function signIn() {
+      const response = await fetch("http://localhost:5000/api/sign-in");
+      const data = await response.json();
+      console.log(data);
+    }
+    signIn();
+  };
   return (
     <nav className="flex justify-between fixed z-50 w-full bg-slate-500 px-6 py-4 lg:px-10">
       <Link to="/" className="flex items-center gap-1">
@@ -28,7 +36,7 @@ const Navbar = () => {
         <header>
           <SignedOut>
             <SignInButton>
-              <Button>Sign In</Button>
+              <Button onClick={handelClick}>Sign In</Button>
             </SignInButton>
           </SignedOut>
           <SignedIn>

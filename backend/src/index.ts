@@ -1,12 +1,14 @@
 import express from "express";
 import dotenv from "dotenv";
+import loginRoutes from "./routes/loginRoutes";
 import { clerkMiddleware } from "@clerk/express";
 
 dotenv.config();
 
 const app = express();
-
 app.use(clerkMiddleware());
+
+app.use("/api", loginRoutes);
 app.use(express.json());
 
 const PORT = process.env.PORT || 5000;
