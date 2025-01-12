@@ -1,40 +1,28 @@
-import { clerkClient, getAuth, requireAuth } from "@clerk/express";
-import { Request, Response } from "express";
-import { StreamClient } from "@stream-io/node-sdk";
+import { clerkClient, getAuth } from "@clerk/express";
+import { Request, Response, NextFunction } from "express";
 
-// export const users = async (req: Request, res: Response) => {
-//   const auth = getAuth(req);
-//   const userId = auth.userId;
-//   if (!userId) {
-//     return void res.status(400).json({ error: "Error: No signed-in user" });
-//   }
-
-//   // Use the userId to get information about the user
-//   const user = await clerkClient.users.getUser(userId);
-//   res.status(200).json(user);
-//   // res.status(200).json(userId);
-// }
-
-export const token = async (req: Request, res: Response) => {
-  const apiKey = process.env.API_KEY;
-  const secret = process.env.API_SECRET;
-  if (!apiKey || !secret) {
-    return void res
-      .status(500)
-      .json({ error: "Error: API key or secret is not defined" });
-  }
+export const tokens = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+): Promise<void> => {
   const auth = getAuth(req);
   const userId = auth.userId;
+
   if (!userId) {
-    return void res.status(400).json({ error: "Error: No signed-in user" });
+    res.status(400).json({ error: "Error: No signed-in user" });
+    return;
   }
 
-  // Use the userId to get information about the user
-  const user = await clerkClient.users.getUser(userId);
-  res.status(200).json(user);
-  // res.status(200).json(userId);
-  const streamClient = new StreamClient(apiKey, secret);
-
-  const token = streamClient.generateUserToken({ user_id: user.id });
-  res.status(200).json({ token });
+  try {
+    const user = await clerkClient.users.getUser(userId);
+    if (!user) {
+      res.status(404).json({ error: "User not found" });
+      return;
+    }
+    res.status(200).json({ message: "user authenticated", user });
+  } catch (error) {
+    console.log("error in token generation", error);
+    next(error);
+  }
 };
