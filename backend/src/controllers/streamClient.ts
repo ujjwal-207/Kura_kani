@@ -11,8 +11,8 @@ export const tokens = async (
   const userId = auth.userId;
   const apiKey = process.env.API_KEY;
   const secret = process.env.API_SECRET;
-  const expirationTime = Math.floor(Date.now() / 1000) + 3600;
-  const issuedAt = Math.floor(Date.now() / 1000);
+  const exp = Math.floor(Date.now() / 1000) + 3600;
+  const iat = Math.floor(Date.now() / 1000) - 100;
 
   if (!userId) {
     res.status(400).json({ error: "Error: No signed-in user" });
@@ -31,11 +31,11 @@ export const tokens = async (
     }
     const streamClient = new StreamClient(apiKey, secret);
     const token = streamClient.generateUserToken({
-      user_id: user.id,
-      expirationTime,
-      issuedAt,
+      user_id: userId,
+      exp,
+      iat,
     });
-    res.status(200).json({ message: "Token generated", token });
+    res.status(200).json({ token });
   } catch (error) {
     console.log("error in token generation", error);
     next(error);

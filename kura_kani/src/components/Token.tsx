@@ -25,6 +25,7 @@ export const Token = () => {
       });
 
       const data = await response.json();
+
       return data.token;
     } catch (error) {
       console.log("error", error);

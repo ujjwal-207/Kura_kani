@@ -16,7 +16,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <ClerkProvider publishableKey={PUBLISHABLE_KEY} afterSignOutUrl="/">
       <StreamVideoProvider>
-        <App />
+      <App />
       </StreamVideoProvider>
     </ClerkProvider>
   </React.StrictMode>
