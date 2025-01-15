@@ -1,5 +1,13 @@
-import React from "react";
+import CallList from "@/components/CallList";
 
-export const Recordings = () => {
-  return <div>Recordings</div>;
+const Recordings = () => {
+  return (
+    <section className="flex size-full flex-col gap-10 text-black">
+      <h1 className="text-3xl font-bold">Recordings</h1>
+
+      <CallList type="recordings" />
+    </section>
+  );
 };
+
+export default Recordings;

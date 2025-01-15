@@ -31,6 +31,7 @@ const MeetingTypeList = () => {
 
   const createMeeting = async () => {
     if (!client || !user) return;
+
     try {
       if (!values.dateTime) {
         toast({ title: "Please select a date and time" });
@@ -63,7 +64,10 @@ const MeetingTypeList = () => {
     }
   };
 
-  if (!client || !user) return <Loader />;
+  if (!client || !user) {
+    console.log("not user or client");
+    return <Loader />;
+  }
 
   const meetingLink = `${"http://localhost:5173"}/meeting/${callDetail?.id}`;
 

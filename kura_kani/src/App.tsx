@@ -2,11 +2,12 @@ import { Route, BrowserRouter as Router, Routes } from "react-router-dom";
 import Home from "./pages/Home";
 import Navbar from "./components/Navbar";
 import Sidebar from "./components/Sidebar";
-import { PersonalRoom } from "./pages/PersonalRoom";
-import { Previous } from "./pages/Previous";
-import { Recordings } from "./pages/Recordings";
-import { Upcoming } from "./pages/Upcoming";
+
 import { Meeting } from "./pages/Meeting";
+import PersonalRoom from "./pages/PersonalRoom";
+import PreviousPage from "./pages/Previous";
+import Recordings from "./pages/Recordings";
+import Upcoming from "./pages/Upcoming";
 
 export default function App() {
   return (
@@ -23,9 +24,10 @@ export default function App() {
                 <Routes>
                   <Route path="/" element={<Home />} />
                   <Route path="/personalroom" element={<PersonalRoom />} />
-                  <Route path="/previous" element={<Previous />} />
+                  <Route path="/previous" element={<PreviousPage />} />
                   <Route path="/recordings" element={<Recordings />} />
                   <Route path="/upcoming" element={<Upcoming />} />
+
                   <Route path="/metting/:id" element={<Meeting />} />
                 </Routes>
               </div>
