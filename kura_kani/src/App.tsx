@@ -26,7 +26,7 @@ export default function App() {
                   <Route path="/previous" element={<Previous />} />
                   <Route path="/recordings" element={<Recordings />} />
                   <Route path="/upcoming" element={<Upcoming />} />
-                  <Route path="/metting/:id" element={<Meeting />}></Route>
+                  <Route path="/metting/:id" element={<Meeting />} />
                 </Routes>
               </div>
             </section>

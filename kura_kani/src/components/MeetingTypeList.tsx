@@ -1,10 +1,7 @@
 import { useState } from "react";
 
-// import HomeCard from './HomeCard';
-
 import { Call, useStreamVideoClient } from "@stream-io/video-react-sdk";
 
-// import Loader from './Loader';
 import { Textarea } from "./ui/textarea";
 import ReactDatePicker from "react-datepicker";
 
@@ -13,6 +10,8 @@ import { Link } from "react-router-dom";
 import { useUser } from "@clerk/clerk-react";
 import MeetingModal from "./MeetingModals";
 import { useToast } from "@/hooks/use-toast";
+import Loader from "./Loader";
+import HomeCard from "./HomeCard";
 
 const initialValues = {
   dateTime: new Date(),
@@ -64,39 +63,39 @@ const MeetingTypeList = () => {
     }
   };
 
-  //   if (!client || !user) return <Loader />;
+  if (!client || !user) return <Loader />;
 
-  const meetingLink = `${process.env.NEXT_PUBLIC_BASE_URL}/meeting/${callDetail?.id}`;
+  const meetingLink = `${"http://localhost:5173"}/meeting/${callDetail?.id}`;
 
   return (
     <section className="grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-4">
-      {/* <HomeCard
+      <HomeCard
         img="/icons/add-meeting.svg"
         title="New Meeting"
         description="Start an instant meeting"
-        handleClick={() => setMeetingState('isInstantMeeting')}
+        handleClick={() => setMeetingState("isInstantMeeting")}
       />
       <HomeCard
         img="/icons/join-meeting.svg"
         title="Join Meeting"
         description="via invitation link"
         className="bg-blue-1"
-        handleClick={() => setMeetingState('isJoiningMeeting')}
+        handleClick={() => setMeetingState("isJoiningMeeting")}
       />
       <HomeCard
         img="/icons/schedule.svg"
         title="Schedule Meeting"
         description="Plan your meeting"
         className="bg-purple-1"
-        handleClick={() => setMeetingState('isScheduleMeeting')}
+        handleClick={() => setMeetingState("isScheduleMeeting")}
       />
       <HomeCard
         img="/icons/recordings.svg"
         title="View Recordings"
         description="Meeting Recordings"
         className="bg-yellow-1"
-        handleClick={() => router.push('/recordings')}
-      /> */}
+        handleClick={() => <Link to={"/recordings"} />}
+      />
 
       {!callDetail ? (
         <MeetingModal
@@ -154,7 +153,7 @@ const MeetingTypeList = () => {
         title="Type the link here"
         className="text-center"
         buttonText="Join Meeting"
-        // handleClick={() => router.push(values.link)}
+        handleClick={() => <Link to={values.link} />}
       >
         <Input
           placeholder="Meeting link"
