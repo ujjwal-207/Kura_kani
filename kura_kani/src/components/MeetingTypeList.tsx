@@ -1,6 +1,3 @@
-/* eslint-disable camelcase */
-"use client";
-
 import { useState } from "react";
 
 // import HomeCard from './HomeCard';
@@ -12,7 +9,7 @@ import { Textarea } from "./ui/textarea";
 import ReactDatePicker from "react-datepicker";
 
 import { Input } from "./ui/input";
-import { useRouteError } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useUser } from "@clerk/clerk-react";
 import MeetingModal from "./MeetingModals";
 import { useToast } from "@/hooks/use-toast";
@@ -24,7 +21,6 @@ const initialValues = {
 };
 
 const MeetingTypeList = () => {
-  const router = useRouteError();
   const [meetingState, setMeetingState] = useState<
     "isScheduleMeeting" | "isJoiningMeeting" | "isInstantMeeting" | undefined
   >(undefined);
@@ -57,7 +53,7 @@ const MeetingTypeList = () => {
       });
       setCallDetail(call);
       if (!values.description) {
-        router.push(`/meeting/${call.id}`);
+        <Link to={`/meeting/${call.id}`} />;
       }
       toast({
         title: "Meeting Created",

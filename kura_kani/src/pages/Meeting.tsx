@@ -6,11 +6,11 @@ import { Loader } from "lucide-react";
 
 import { useGetCallById } from "@/hooks/useGetCallById";
 
-import MeetingSetup from "@/components/MeetingSetup";
-import MeetingRoom from "@/components/MeetingRoom";
 import { useParams } from "react-router-dom";
 import { useUser } from "@clerk/clerk-react";
 import Alert from "@/components/Alert";
+import MeetingSetup from "@/components/MettingSetup";
+import MeetingRoom from "@/components/MettingRoom";
 
 export const Meeting = () => {
   const { id } = useParams();
