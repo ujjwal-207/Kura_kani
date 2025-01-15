@@ -1,4 +1,5 @@
 import { clerkClient, getAuth } from "@clerk/express";
+import { StreamClient } from "@stream-io/node-sdk";
 import { Request, Response, NextFunction } from "express";
 
 export const tokens = async (
@@ -8,9 +9,15 @@ export const tokens = async (
 ): Promise<void> => {
   const auth = getAuth(req);
   const userId = auth.userId;
+  const apiKey = process.env.API_KEY;
+  const secret = process.env.API_SECRET;
 
   if (!userId) {
     res.status(400).json({ error: "Error: No signed-in user" });
+    return;
+  }
+  if (!apiKey || !secret) {
+    res.status(400).json({ error: "Error:no api key" });
     return;
   }
 
@@ -20,7 +27,9 @@ export const tokens = async (
       res.status(404).json({ error: "User not found" });
       return;
     }
-    res.status(200).json({ message: "user authenticated", user });
+    const streamClient = new StreamClient(apiKey, secret);
+    const token = streamClient.generateUserToken({ user_id: user.id });
+    res.status(200).json({ message: "Token generated", token });
   } catch (error) {
     console.log("error in token generation", error);
     next(error);
