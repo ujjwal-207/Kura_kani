@@ -10,9 +10,7 @@ import { Button } from "../ui/button";
 const apiKey = import.meta.env.VITE_STREAM_PUBLISHABLE_KEY;
 
 const StreamVideoProvider = ({ children }: { children: ReactNode }) => {
-  const [videoClient, setVideoClient] = useState<StreamVideoClient | null>(
-    null
-  );
+  const [videoClient, setVideoClient] = useState<StreamVideoClient>();
   const { user, isLoaded } = useUser();
   const fetchToken = Token();
 
@@ -43,23 +41,15 @@ const StreamVideoProvider = ({ children }: { children: ReactNode }) => {
     initializeClient();
   }, [user, isLoaded, fetchToken]);
 
-  if (!isLoaded) {
-    return <Loader />;
-  }
-
-  if (!user) {
+  if (!videoClient) {
     return (
       <div>
-        Please sign in to access the video features.
         <SignInButton>
           <Button>Sign In</Button>
         </SignInButton>
+        <Loader />
       </div>
     );
-  }
-
-  if (!videoClient) {
-    return <Loader />;
   }
 
   return <StreamVideo client={videoClient}>{children}</StreamVideo>;

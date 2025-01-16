@@ -28,7 +28,7 @@ export default function App() {
                   <Route path="/recordings" element={<Recordings />} />
                   <Route path="/upcoming" element={<Upcoming />} />
 
-                  <Route path="/metting/:id" element={<Meeting />} />
+                  <Route path="/meeting/:id" element={<Meeting />} />
                 </Routes>
               </div>
             </section>

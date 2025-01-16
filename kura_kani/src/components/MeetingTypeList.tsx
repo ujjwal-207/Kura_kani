@@ -6,7 +6,7 @@ import { Textarea } from "./ui/textarea";
 import ReactDatePicker from "react-datepicker";
 
 import { Input } from "./ui/input";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useUser } from "@clerk/clerk-react";
 import MeetingModal from "./MeetingModals";
 import { useToast } from "@/hooks/use-toast";
@@ -20,6 +20,7 @@ const initialValues = {
 };
 
 const MeetingTypeList = () => {
+  const navigate = useNavigate();
   const [meetingState, setMeetingState] = useState<
     "isScheduleMeeting" | "isJoiningMeeting" | "isInstantMeeting" | undefined
   >(undefined);
@@ -53,7 +54,7 @@ const MeetingTypeList = () => {
       });
       setCallDetail(call);
       if (!values.description) {
-        <Link to={`/meeting/${call.id}`} />;
+        navigate(`/meeting/${call.id}`);
       }
       toast({
         title: "Meeting Created",
@@ -68,7 +69,7 @@ const MeetingTypeList = () => {
     console.log("not user or client");
     return <Loader />;
   }
-
+  console.log(values.link);
   const meetingLink = `${"http://localhost:5173"}/meeting/${callDetail?.id}`;
 
   return (
@@ -98,7 +99,7 @@ const MeetingTypeList = () => {
         title="View Recordings"
         description="Meeting Recordings"
         className="bg-yellow-1"
-        handleClick={() => <Link to={"/recordings"} />}
+        handleClick={() => navigate("/recordings")}
       />
 
       {!callDetail ? (
@@ -157,7 +158,10 @@ const MeetingTypeList = () => {
         title="Type the link here"
         className="text-center"
         buttonText="Join Meeting"
-        handleClick={() => <Link to={values.link} />}
+        handleClick={() => {
+          console.log("clicked");
+          window.location.href = values.link;
+        }}
       >
         <Input
           placeholder="Meeting link"
