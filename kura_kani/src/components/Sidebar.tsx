@@ -6,7 +6,7 @@ const Sidebar = () => {
   const pathname = window.location.pathname;
 
   return (
-    <section className="sticky left-0 top-0 flex h-screen w-fit flex-col  justify-between  bg-dark-1 p-6 pt-28 text-black max-sm:hidden lg:w-[264px]">
+    <section className="sticky left-0 top-0 flex h-screen w-fit flex-col  justify-between  bg-[#3D3D3D] p-6 pt-28 text-[#FFFAEC] max-sm:hidden lg:w-[264px]">
       <div className="flex flex-1 flex-col gap-6">
         {sidebarLinks.map((item) => {
           const isActive =
@@ -23,7 +23,7 @@ const Sidebar = () => {
                 }
               )}
             >
-              <img src={item.imgURL} alt={item.label} width={24} height={24} />
+              <img src={item.imgURL} alt={item.label} width={32} height={32} />
               <p className="text-lg font-semibold max-lg:hidden">
                 {item.label}
               </p>

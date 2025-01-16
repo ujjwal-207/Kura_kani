@@ -6,7 +6,7 @@ import { Textarea } from "./ui/textarea";
 import ReactDatePicker from "react-datepicker";
 
 import { Input } from "./ui/input";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useUser } from "@clerk/clerk-react";
 import MeetingModal from "./MeetingModals";
 import { useToast } from "@/hooks/use-toast";

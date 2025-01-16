@@ -1,27 +1,27 @@
 export const sidebarLinks = [
   {
-    imgURL: "/icons/Home.svg",
+    imgURL: "/src/assets/home.png",
     route: "/",
     label: "Home",
   },
 
   {
-    imgURL: "/icons/upcoming.svg",
+    imgURL: "/src/assets/upcoming.png",
     route: "/upcoming",
     label: "Upcoming",
   },
   {
-    imgURL: "/icons/previous.svg",
+    imgURL: "/src/assets/previsious.png",
     route: "/previous",
     label: "Previous",
   },
   {
-    imgURL: "/icons/Video.svg",
+    imgURL: "/src/assets/recordings.png",
     route: "/recordings",
     label: "Recordings",
   },
   {
-    imgURL: "/icons/add-personal.svg",
+    imgURL: "/src/assets/personal.png",
     route: "/personalroom",
     label: "Personal Room",
   },
