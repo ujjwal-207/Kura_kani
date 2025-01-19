@@ -6,9 +6,10 @@ import { useEffect, useState } from "react";
 
 import { useGetCalls } from "@/hooks/useGetCall";
 import MeetingCard from "./MeetingCard";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const CallList = ({ type }: { type: "ended" | "upcoming" | "recordings" }) => {
+  const navigate = useNavigate();
   const { endedCalls, upcomingCalls, callRecordings, isLoading } =
     useGetCalls();
   const [recordings, setRecordings] = useState<CallRecording[]>([]);
@@ -70,10 +71,10 @@ const CallList = ({ type }: { type: "ended" | "upcoming" | "recordings" }) => {
             key={(meeting as Call).id}
             icon={
               type === "ended"
-                ? "/icons/previous.svg"
+                ? "/src/assets/previsious.png"
                 : type === "upcoming"
-                ? "/icons/upcoming.svg"
-                : "/icons/recordings.svg"
+                ? "/src/assets/upcoming.png"
+                : "/src/assets/recordings.png"
             }
             title={
               (meeting as Call).state?.custom?.description ||
@@ -88,21 +89,21 @@ const CallList = ({ type }: { type: "ended" | "upcoming" | "recordings" }) => {
             link={
               type === "recordings"
                 ? (meeting as CallRecording).url
-                : `${process.env.NEXT_PUBLIC_BASE_URL}/meeting/${
-                    (meeting as Call).id
-                  }`
+                : `${"http://localhost:5173/"}/meeting/${(meeting as Call).id}`
             }
-            buttonIcon1={type === "recordings" ? "/icons/play.svg" : undefined}
+            buttonIcon1={
+              type === "recordings" ? "/src/assets/play.png" : undefined
+            }
             buttonText={type === "recordings" ? "Play" : "Start"}
             handleClick={
               type === "recordings"
-                ? () => <Link to={`${(meeting as CallRecording).url}`} />
-                : () => <Link to={`/meeting/${(meeting as Call).id}`} />
+                ? () => navigate(`${(meeting as CallRecording).url}`)
+                : () => navigate(`/meeting/${(meeting as Call).id}`)
             }
           />
         ))
       ) : (
-        <h1 className="text-2xl font-bold text-white">{noCallsMessage}</h1>
+        <h1 className="text-2xl font-bold text-black">{noCallsMessage}</h1>
       )}
     </div>
   );

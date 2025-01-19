@@ -73,32 +73,33 @@ const MeetingTypeList = () => {
   const meetingLink = `${"http://localhost:5173"}/meeting/${callDetail?.id}`;
 
   return (
-    <section className="grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-4">
+    <section className="grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-4 ">
       <HomeCard
-        img="/icons/add-meeting.svg"
+        img="/src/assets/metting.png"
         title="New Meeting"
         description="Start an instant meeting"
+        className="bg-[rgb(38,107,181)]"
         handleClick={() => setMeetingState("isInstantMeeting")}
       />
       <HomeCard
-        img="/icons/join-meeting.svg"
+        img="/src/assets/join.png"
         title="Join Meeting"
         description="via invitation link"
-        className="bg-blue-1"
+        className="bg-[rgb(249,141,79)]"
         handleClick={() => setMeetingState("isJoiningMeeting")}
       />
       <HomeCard
-        img="/icons/schedule.svg"
+        img="/src/assets/schedule.png"
         title="Schedule Meeting"
         description="Plan your meeting"
-        className="bg-purple-1"
+        className="bg-white"
         handleClick={() => setMeetingState("isScheduleMeeting")}
       />
       <HomeCard
-        img="/icons/recordings.svg"
+        img="/src/assets/records.png"
         title="View Recordings"
         description="Meeting Recordings"
-        className="bg-yellow-1"
+        className="bg-black text-white"
         handleClick={() => navigate("/recordings")}
       />
 
@@ -114,7 +115,7 @@ const MeetingTypeList = () => {
               Add a description
             </label>
             <Textarea
-              className="border-none bg-dark-3 focus-visible:ring-0 focus-visible:ring-offset-0"
+              className="border-black bg-[#FDF7F4] focus-visible:ring-0 focus-visible:ring-offset-0"
               onChange={(e) =>
                 setValues({ ...values, description: e.target.value })
               }
@@ -132,7 +133,7 @@ const MeetingTypeList = () => {
               timeIntervals={15}
               timeCaption="time"
               dateFormat="MMMM d, yyyy h:mm aa"
-              className="w-full rounded bg-dark-3 p-2 focus:outline-none"
+              className="w-full rounded bg-[#FDF7F4]   p-2 focus:outline-black"
             />
           </div>
         </MeetingModal>
@@ -145,8 +146,8 @@ const MeetingTypeList = () => {
             navigator.clipboard.writeText(meetingLink);
             toast({ title: "Link Copied" });
           }}
-          image={"/icons/checked.svg"}
-          buttonIcon="/icons/copy.svg"
+          image={"/src/assets/check.png"}
+          buttonIcon="/src/assets/copyW.png"
           className="text-center"
           buttonText="Copy Meeting Link"
         />
@@ -166,7 +167,7 @@ const MeetingTypeList = () => {
         <Input
           placeholder="Meeting link"
           onChange={(e) => setValues({ ...values, link: e.target.value })}
-          className="border-none bg-dark-3 focus-visible:ring-0 focus-visible:ring-offset-0"
+          className="border-black bg-[#FDF7F4]  focus-visible:ring-0 focus-visible:ring-offset-0"
         />
       </MeetingModal>
 
