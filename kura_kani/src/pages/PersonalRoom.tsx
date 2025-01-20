@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 
 import { useUser } from "@clerk/clerk-react";
 import { useToast } from "@/hooks/use-toast";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Table = ({
   title,
@@ -27,6 +27,7 @@ const Table = ({
 };
 
 const PersonalRoom = () => {
+  const navigate = useNavigate();
   const { user } = useUser();
   const client = useStreamVideoClient();
   const { toast } = useToast();
@@ -48,7 +49,7 @@ const PersonalRoom = () => {
       });
     }
 
-    <Link to={`/meeting/${meetingId}?personal=true`} />;
+    navigate(`/meeting/${meetingId}?personal=true`);
   };
 
   const meetingLink = `${"http://localhost:5173"}/meeting/${meetingId}?personal=true`;
