@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 
 import { useUser } from "@clerk/clerk-react";
 import { useToast } from "@/hooks/use-toast";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const Table = ({
   title,

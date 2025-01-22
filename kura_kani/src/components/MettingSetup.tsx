@@ -54,7 +54,7 @@ const MeetingSetup = ({
     return (
       <Alert
         title="The call has been ended by the host"
-        iconUrl="/icons/call-ended.svg"
+        iconUrl="/src/assets/callend.png"
       />
     );
 

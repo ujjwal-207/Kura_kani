@@ -16,7 +16,7 @@ export const Token = () => {
       }
 
       const token = await getToken();
-      const response = await fetch("http://localhost:5000/api/token", {
+      const response = await fetch("https://kura-kani.onrender.com/api/token", {
         method: "GET",
         headers: {
           Authorization: `Bearer ${token}`,
