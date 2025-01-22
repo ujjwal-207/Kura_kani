@@ -70,7 +70,7 @@ const MeetingTypeList = () => {
     return <Loader />;
   }
   console.log(values.link);
-  const meetingLink = `${"http://localhost:5173/"}||{"https://kura-kani-r9ks.onrender.com/"}/meeting/${
+  const meetingLink = `${"https://kura-kani-r9ks.onrender.com/"}/meeting/${
     callDetail?.id
   }`;
 
