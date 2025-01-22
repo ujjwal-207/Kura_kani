@@ -13,7 +13,7 @@ const Navbar = () => {
     <nav className="flex justify-between fixed z-50 w-full bg-[#FDF7F4]  px-6 py-4 lg:px-10">
       <Link to="/" className="flex items-center gap-1">
         <img
-          src="/src/assets/Kura_kani.png"
+          src="/assets/Kura_kani.png"
           width={52}
           height={52}
           alt="Kura_Kani logo"

@@ -71,10 +71,10 @@ const CallList = ({ type }: { type: "ended" | "upcoming" | "recordings" }) => {
             key={(meeting as Call).id}
             icon={
               type === "ended"
-                ? "/src/assets/previsious.png"
+                ? "/assets/previsious.png"
                 : type === "upcoming"
-                ? "/src/assets/upcoming.png"
-                : "/src/assets/recordings.png"
+                ? "/assets/upcoming.png"
+                : "/assets/recordings.png"
             }
             title={
               (meeting as Call).state?.custom?.description ||
@@ -91,9 +91,7 @@ const CallList = ({ type }: { type: "ended" | "upcoming" | "recordings" }) => {
                 ? (meeting as CallRecording).url
                 : `${"http://localhost:5173/"}/meeting/${(meeting as Call).id}`
             }
-            buttonIcon1={
-              type === "recordings" ? "/src/assets/play.png" : undefined
-            }
+            buttonIcon1={type === "recordings" ? "/assets/play.png" : undefined}
             buttonText={type === "recordings" ? "Play" : "Start"}
             handleClick={
               type === "recordings"
