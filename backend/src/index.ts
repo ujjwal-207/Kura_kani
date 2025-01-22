@@ -10,7 +10,7 @@ const app = express();
 
 app.use(express.json());
 const corsOptions = {
-  origin: process.env.CLIENT_ORIGIN || "http://localhost:5173",
+  "https://kura-kani-r9ks.onrender.com": "http://localhost:5173",
   credentials: true,
 };
 
