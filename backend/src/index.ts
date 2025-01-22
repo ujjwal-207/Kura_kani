@@ -1,7 +1,7 @@
 import express from "express";
 import dotenv from "dotenv";
 import loginRoutes from "./routes/loginRoutes";
-import { clerkMiddleware, requireAuth } from "@clerk/express";
+import { clerkMiddleware } from "@clerk/express";
 import cors from "cors";
 
 dotenv.config();
@@ -10,7 +10,7 @@ const app = express();
 
 app.use(express.json());
 const corsOptions = {
-  origin: "http://localhost:5173",
+  origin: process.env.CLIENT_ORIGIN || "http://localhost:5173",
   credentials: true,
 };
 
