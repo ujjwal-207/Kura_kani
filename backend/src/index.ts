@@ -11,7 +11,10 @@ const app = express();
 app.use(express.json());
 
 const corsOptions = {
-  origin: (origin, callback) => {
+  origin: (
+    origin: string | undefined,
+    callback: (err: Error | null, allow?: boolean) => void
+  ) => {
     const allowedOrigins = [
       "https://kura-kani-main.vercel.app",
       "http://localhost:5173",
