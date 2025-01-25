@@ -1,11 +1,11 @@
 import { useAuth } from "@clerk/clerk-react";
 
-const getHost = () => {
-  const islocalhost = import.meta.env.DEV;
-  return islocalhost
-    ? "http://192.168.1.70:5000/api/token"
-    : "https://kura-kani-eta.vercel.app//api/token";
-};
+// const getHost = () => {
+//   const islocalhost = import.meta.env.DEV;
+//   return islocalhost
+//     ? "http://192.168.1.70:5000/api/token"
+//     : "https://kura-kani-eta.vercel.app//api/token";
+// };
 
 export const Token = () => {
   const { getToken, isSignedIn, isLoaded } = useAuth();
@@ -23,14 +23,17 @@ export const Token = () => {
       }
 
       const token = await getToken();
-      const response = await fetch(`${getHost()}`, {
-        method: "GET",
-        credentials: "include",
-        headers: {
-          Authorization: `Bearer ${token}`,
-          "Content-Type": "application/json",
-        },
-      });
+      const response = await fetch(
+        "https://kura-kani-eta.vercel.app/api/token",
+        {
+          method: "GET",
+          credentials: "include",
+          headers: {
+            Authorization: `Bearer ${token}`,
+            "Content-Type": "application/json",
+          },
+        }
+      );
 
       const data = await response.json();
 

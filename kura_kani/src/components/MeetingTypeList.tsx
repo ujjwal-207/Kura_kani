@@ -71,9 +71,10 @@ const MeetingTypeList = () => {
   }
   console.log(values.link);
   const meetingLink = `${
-    window.location.hostname === "localhost"
-      ? "http://localhost:5173"
-      : "https://kura-kani-main.vercel.app/"
+    // window.location.hostname === "localhost"
+    //   ? "http://localhost:5173"
+    //   :
+    "https://kura-kani-main.vercel.app/"
   }/meeting/${callDetail?.id}`;
 
   return (

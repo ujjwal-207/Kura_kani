@@ -53,9 +53,10 @@ const PersonalRoom = () => {
   };
 
   const meetingLink = `${
-    window.location.hostname === "localhost"
-      ? "http://localhost:5173"
-      : "https://kura-kani-main.vercel.app/"
+    // window.location.hostname === "localhost"
+    //   ? "http://localhost:5173"
+    //   :
+    "https://kura-kani-main.vercel.app"
   }meeting/${meetingId}?personal=true`;
 
   return (
