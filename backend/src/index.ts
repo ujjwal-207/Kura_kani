@@ -10,7 +10,12 @@ const app = express();
 
 app.use(express.json());
 const corsOptions = {
-  "https://kura-kani-r9ks.onrender.com": "http://localhost:5173",
+  origin: [
+    "https://kura-kani-main.vercel.app/",
+    "http://localhost:5173",
+    "http://192.168.1.70:5173",
+  ],
+
   credentials: true,
 };
 

@@ -92,7 +92,7 @@ const CallList = ({ type }: { type: "ended" | "upcoming" | "recordings" }) => {
                 : `${
                     window.location.hostname === "localhost"
                       ? "http://localhost:5173"
-                      : "https://kura-kani-r9ks.onrender.com"
+                      : "https://kura-kani-main.vercel.app/"
                   }/meeting/${(meeting as Call).id}`
             }
             buttonIcon1={type === "recordings" ? "/assets/play.png" : undefined}

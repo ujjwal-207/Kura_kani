@@ -1,10 +1,10 @@
 import { useAuth } from "@clerk/clerk-react";
 
 const getHost = () => {
-  const islocalhost = window.location.hostname === "localhost";
+  const islocalhost = import.meta.env.DEV;
   return islocalhost
-    ? "http://localhost:5000/api/token"
-    : "https://kura-kani.onrender.com/api/token";
+    ? "http://192.168.1.70:5000/api/token"
+    : "https://kura-kani-eta.vercel.app/api/token";
 };
 
 export const Token = () => {
@@ -25,6 +25,7 @@ export const Token = () => {
       const token = await getToken();
       const response = await fetch(`${getHost()}`, {
         method: "GET",
+        credentials: "include",
         headers: {
           Authorization: `Bearer ${token}`,
           "Content-Type": "application/json",
