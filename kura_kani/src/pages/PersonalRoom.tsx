@@ -56,7 +56,7 @@ const PersonalRoom = () => {
     // window.location.hostname === "localhost"
     //   ? "http://localhost:5173"
     //   :
-    "https://kura-kani-main.vercel.app"
+    "https://kura-kani-r9ks.onrender.com/"
   }meeting/${meetingId}?personal=true`;
 
   return (

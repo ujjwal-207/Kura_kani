@@ -13,8 +13,8 @@ import MeetingSetup from "@/components/MettingSetup";
 import MeetingRoom from "@/components/MettingRoom";
 
 export const Meeting = () => {
-  const { id } = useParams();
-
+  const { id } = useParams<{ id: string }>();
+  console.log(id);
   const { isLoaded, user } = useUser();
   const { call, isCallLoading } = useGetCallById(id || "");
   const [isSetupComplete, setIsSetupComplete] = useState(false);
