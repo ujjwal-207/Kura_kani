@@ -11,7 +11,7 @@ const app = express();
 app.use(express.json());
 const corsOptions = {
   origin: [
-    "https://kura-kani-main.vercel.app/",
+    "https://kura-kani-main.vercel.app",
     "http://localhost:5173",
     "http://192.168.1.70:5173",
   ],
