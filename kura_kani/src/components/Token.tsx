@@ -16,17 +16,14 @@ export const Token = () => {
       }
 
       const token = await getToken();
-      const response = await fetch(
-        "https://kura-kani-eta.vercel.app/api/token",
-        {
-          method: "GET",
-          credentials: "include",
-          headers: {
-            Authorization: `Bearer ${token}`,
-            "Content-Type": "application/json",
-          },
-        }
-      );
+      const response = await fetch("https://kura-kani.onrender.com/api/token", {
+        method: "GET",
+        credentials: "include",
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json",
+        },
+      });
 
       if (!response.ok) {
         throw new Error("Failed to fetch token");
