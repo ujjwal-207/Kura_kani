@@ -1,12 +1,5 @@
 import { useAuth } from "@clerk/clerk-react";
 
-// const getHost = () => {
-//   const islocalhost = import.meta.env.DEV;
-//   return islocalhost
-//     ? "http://192.168.1.70:5000/api/token"
-//     : "https://kura-kani-eta.vercel.app//api/token";
-// };
-
 export const Token = () => {
   const { getToken, isSignedIn, isLoaded } = useAuth();
 
@@ -35,12 +28,16 @@ export const Token = () => {
         }
       );
 
-      const data = await response.json();
+      if (!response.ok) {
+        throw new Error("Failed to fetch token");
+      }
 
+      const data = await response.json();
       return data.token;
     } catch (error) {
       console.log("error", error);
     }
   };
+
   return fetchToken;
 };

@@ -1,8 +1,8 @@
 import express from "express";
 import dotenv from "dotenv";
+import cors from "cors";
 import loginRoutes from "./routes/loginRoutes";
 import { clerkMiddleware } from "@clerk/express";
-import cors from "cors";
 
 dotenv.config();
 
@@ -10,8 +10,7 @@ const app = express();
 
 app.use(express.json());
 const corsOptions = {
-  origin: "https://kura-kani-main.vercel.app",
-  // "http://localhost:5173",
+  origin: ["https://kura-kani-main.vercel.app", "http://localhost:5173"],
 
   credentials: true,
 };
