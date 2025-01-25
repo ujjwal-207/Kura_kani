@@ -4,7 +4,7 @@ const getHost = () => {
   const islocalhost = import.meta.env.DEV;
   return islocalhost
     ? "http://192.168.1.70:5000/api/token"
-    : "https://kura-kani-eta.vercel.app/api/token";
+    : "https://kura-kani-eta.vercel.app//api/token";
 };
 
 export const Token = () => {
