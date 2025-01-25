@@ -18,6 +18,7 @@ const corsOptions = {
     const allowedOrigins = [
       "https://kura-kani-main.vercel.app",
       "http://localhost:5173",
+      "https://kura-kani-r9ks.onrender.com",
     ];
     if (!origin || allowedOrigins.includes(origin)) {
       callback(null, true);
@@ -30,10 +31,15 @@ const corsOptions = {
   allowedHeaders: ["Content-Type", "Authorization"],
 };
 
+app.use(cors(corsOptions));
 app.options("*", cors(corsOptions));
 
 app.use(clerkMiddleware());
 app.use("/api", loginRoutes);
+app.use((req, res, next) => {
+  console.log(`Incoming request: ${req.method} ${req.url}`);
+  next();
+});
 
 const PORT = process.env.PORT || 5000;
 
