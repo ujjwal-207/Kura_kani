@@ -65,7 +65,7 @@ const MeetingRoom = () => {
         </div>
       </div>
       {/* video layout and call controls */}
-      <div className="fixed bottom-0 flex w-full items-center justify-center gap-5">
+      <div className="fixed bottom-1 flex w-full items-center justify-center gap-5">
         <CallControls onLeave={() => <Link to={"/"} />} />
 
         <DropdownMenu>
@@ -74,7 +74,7 @@ const MeetingRoom = () => {
               <LayoutList size={20} className="text-black" />
             </DropdownMenuTrigger>
           </div>
-          <DropdownMenuContent className="border-dark-1 bg-white text-black">
+          <DropdownMenuContent className="border-white bg-black text-white">
             {["Grid", "Speaker-Left", "Speaker-Right"].map((item, index) => (
               <div key={index}>
                 <DropdownMenuItem

@@ -1,5 +1,12 @@
 import { useAuth } from "@clerk/clerk-react";
 
+const getHost = () => {
+  const islocalhost = window.location.hostname === "localhost";
+  return islocalhost
+    ? "http://localhost:5000/api/token"
+    : "https://kura-kani.onrender.com/api/token";
+};
+
 export const Token = () => {
   const { getToken, isSignedIn, isLoaded } = useAuth();
 
@@ -16,7 +23,7 @@ export const Token = () => {
       }
 
       const token = await getToken();
-      const response = await fetch("https://kura-kani.onrender.com/api/token", {
+      const response = await fetch(`${getHost()}`, {
         method: "GET",
         headers: {
           Authorization: `Bearer ${token}`,

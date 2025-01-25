@@ -89,9 +89,11 @@ const CallList = ({ type }: { type: "ended" | "upcoming" | "recordings" }) => {
             link={
               type === "recordings"
                 ? (meeting as CallRecording).url
-                : `${"http://localhost:5173/"}||{"https://kura-kani-r9ks.onrender.com/"}/meeting/${
-                    (meeting as Call).id
-                  }`
+                : `${
+                    window.location.hostname === "localhost"
+                      ? "http://localhost:5173"
+                      : "https://kura-kani-r9ks.onrender.com"
+                  }/meeting/${(meeting as Call).id}`
             }
             buttonIcon1={type === "recordings" ? "/assets/play.png" : undefined}
             buttonText={type === "recordings" ? "Play" : "Start"}

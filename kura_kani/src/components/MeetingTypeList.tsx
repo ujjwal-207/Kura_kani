@@ -70,9 +70,11 @@ const MeetingTypeList = () => {
     return <Loader />;
   }
   console.log(values.link);
-  const meetingLink = `${"https://kura-kani-r9ks.onrender.com/"}/meeting/${
-    callDetail?.id
-  }`;
+  const meetingLink = `${
+    window.location.hostname === "localhost"
+      ? "http://localhost:5173"
+      : "https://kura-kani-r9ks.onrender.com"
+  }/meeting/${callDetail?.id}`;
 
   return (
     <section className="grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-4 ">
