@@ -25,7 +25,7 @@ const StreamVideoProvider = ({ children }: { children: ReactNode }) => {
         console.log("token", token);
         if (!token) throw new Error("Failed to fetch token");
 
-        const client = new StreamVideoClient({
+        const client = StreamVideoClient.getOrCreateInstance({
           apiKey: apiKey,
           user: {
             id: user?.id,
