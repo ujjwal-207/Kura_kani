@@ -3,11 +3,11 @@ import Home from "./pages/Home";
 import Navbar from "./components/Navbar";
 import Sidebar from "./components/Sidebar";
 
-import { Meeting } from "./pages/Meeting";
 import PersonalRoom from "./pages/PersonalRoom";
 import PreviousPage from "./pages/Previous";
 import Recordings from "./pages/Recordings";
 import Upcoming from "./pages/Upcoming";
+import Meeting from "./pages/Meeting";
 
 export default function App() {
   return (
