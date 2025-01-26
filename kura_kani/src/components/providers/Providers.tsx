@@ -32,7 +32,7 @@ const StreamVideoProvider = ({ children }: { children: ReactNode }) => {
             name: user?.username || user?.id,
             image: user?.imageUrl,
           },
-          tokenProvider: async () => token,
+          tokenProvider: token,
         });
 
         setVideoClient(client);
