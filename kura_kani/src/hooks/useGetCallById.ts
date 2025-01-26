@@ -10,7 +10,7 @@ export const useGetCallById = (id: string | string[]) => {
   const { user, isLoaded } = useUser();
 
   useEffect(() => {
-    if (!client) return;
+    if (!client || isLoaded || !user) return;
 
     const loadCall = async () => {
       try {
