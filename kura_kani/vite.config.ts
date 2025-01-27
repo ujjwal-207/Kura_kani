@@ -9,7 +9,17 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"),
     },
   },
-  server: {
-    
+  server: {},
+  build: {
+    rollupOptions: {
+      output: {
+        assetFileNames: (assetInfo) => {
+          if (assetInfo.name === "_redirects") {
+            return "_redirects";
+          }
+          return "[name]-[hash][extname]";
+        },
+      },
+    },
   },
 });
