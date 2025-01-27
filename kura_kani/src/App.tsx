@@ -12,7 +12,7 @@ import Meeting from "./pages/Meeting";
 export default function App() {
   return (
     <div>
-      <Router>
+      <Router basename="/Kura_kani">
         <main className="relative">
           <Navbar />
 
