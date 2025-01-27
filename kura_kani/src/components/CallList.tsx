@@ -2,10 +2,10 @@ import { Call, CallRecording } from "@stream-io/video-react-sdk";
 
 import Loader from "./Loader";
 
+import MeetingCard from "./MeetingCard";
 import { useEffect, useState } from "react";
 
 import { useGetCalls } from "@/hooks/useGetCall";
-import MeetingCard from "./MeetingCard";
 import { useNavigate } from "react-router-dom";
 
 const CallList = ({ type }: { type: "ended" | "upcoming" | "recordings" }) => {
@@ -89,12 +89,7 @@ const CallList = ({ type }: { type: "ended" | "upcoming" | "recordings" }) => {
             link={
               type === "recordings"
                 ? (meeting as CallRecording).url
-                : `${
-                    // window.location.hostname === "localhost"
-                    //   ? "http://localhost:5173"
-                    //   :
-                    "https://kura-kani-main.vercel.app/"
-                  }/meeting/${(meeting as Call).id}`
+                : `${import.meta.env.VITE_HOST}/meeting/${(meeting as Call).id}`
             }
             buttonIcon1={type === "recordings" ? "/assets/play.png" : undefined}
             buttonText={type === "recordings" ? "Play" : "Start"}

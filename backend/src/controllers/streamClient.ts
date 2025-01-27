@@ -12,7 +12,7 @@ export const tokens = async (
   const apiKey = process.env.API_KEY;
   const secret = process.env.API_SECRET;
   const exp = Math.floor(Date.now() / 1000) + 3600;
-  const iat = Math.floor(Date.now() / 1000) - 100;
+  const iat = Math.floor(Date.now() / 1000) - 300;
 
   if (!userId) {
     res.status(400).json({ error: "Error: No signed-in user" });
@@ -41,4 +41,3 @@ export const tokens = async (
     next(error);
   }
 };
-

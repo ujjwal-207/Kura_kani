@@ -5,6 +5,7 @@ import "./index.css";
 import { ClerkProvider } from "@clerk/clerk-react";
 import StreamVideoProvider from "./components/providers/Providers.tsx";
 import { Toaster } from "./components/ui/toaster.tsx";
+import "@stream-io/video-react-sdk/dist/css/styles.css";
 
 // Import your Publishable Key
 const PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY;

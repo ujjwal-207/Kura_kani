@@ -1,16 +1,14 @@
 import { useEffect, useState } from "react";
 import { Call, useStreamVideoClient } from "@stream-io/video-react-sdk";
-import { useUser } from "@clerk/clerk-react";
 
 export const useGetCallById = (id: string | string[]) => {
   const [call, setCall] = useState<Call>();
   const [isCallLoading, setIsCallLoading] = useState(true);
 
   const client = useStreamVideoClient();
-  const { user, isLoaded } = useUser();
 
   useEffect(() => {
-    if (!client || isLoaded || !user) return;
+    if (!client) return;
 
     const loadCall = async () => {
       try {
@@ -28,7 +26,7 @@ export const useGetCallById = (id: string | string[]) => {
     };
 
     loadCall();
-  }, [client, id, isLoaded, user]);
+  }, [client, id]);
 
   return { call, isCallLoading };
 };

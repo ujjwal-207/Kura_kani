@@ -1,28 +1,28 @@
 import { useState } from "react";
-import { useParams } from "react-router-dom";
-import { useUser } from "@clerk/clerk-react";
+
 import { StreamCall, StreamTheme } from "@stream-io/video-react-sdk";
-// import { Loader } from "lucide-react";
+
+import { Loader } from "lucide-react";
+
 import { useGetCallById } from "@/hooks/useGetCallById";
 import Alert from "@/components/Alert";
+
+import { useUser } from "@clerk/clerk-react";
 import MeetingSetup from "@/components/MettingSetup";
 import MeetingRoom from "@/components/MettingRoom";
+import { useParams } from "react-router-dom";
 
-const Meeting = () => {
-  // const urlParams = new URLSearchParams(window.location.search);
-  // const callId = urlParams.get("call_id");
-  // const callType = urlParams.get("call_type") || "default";
-  const { id } = useParams<{ id: string }>();
-  console.log(id);
-  const { user } = useUser();
-  const { call } = useGetCallById(id || "");
+const MeetingPage = () => {
+  const { id } = useParams();
+  const { isLoaded, user } = useUser();
+  const { call, isCallLoading } = useGetCallById(id || "");
   const [isSetupComplete, setIsSetupComplete] = useState(false);
 
-  // if (!isLoaded || isCallLoading) return <Loader />;
+  if (!isLoaded || isCallLoading) return <Loader />;
 
   if (!call)
     return (
-      <p className="text-center text-3xl font-bold text-black">
+      <p className="text-center text-3xl font-bold text-white">
         Call Not Found
       </p>
     );
@@ -49,4 +49,4 @@ const Meeting = () => {
   );
 };
 
-export default Meeting;
+export default MeetingPage;
