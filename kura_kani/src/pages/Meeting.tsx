@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useParams } from "react-router-dom";
-// import { useUser } from "@clerk/clerk-react";
+import { useUser } from "@clerk/clerk-react";
 import { StreamCall, StreamTheme } from "@stream-io/video-react-sdk";
 // import { Loader } from "lucide-react";
 import { useGetCallById } from "@/hooks/useGetCallById";
@@ -14,7 +14,7 @@ const Meeting = () => {
   // const callType = urlParams.get("call_type") || "default";
   const { id } = useParams<{ id: string }>();
   console.log(id);
-  // const { isLoaded, user } = useUser();
+  const { user } = useUser();
   const { call } = useGetCallById(id || "");
   const [isSetupComplete, setIsSetupComplete] = useState(false);
 
