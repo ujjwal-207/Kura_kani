@@ -1,21 +1,24 @@
 import { useState } from "react";
 import { useParams } from "react-router-dom";
-import { useUser } from "@clerk/clerk-react";
+// import { useUser } from "@clerk/clerk-react";
 import { StreamCall, StreamTheme } from "@stream-io/video-react-sdk";
-import { Loader } from "lucide-react";
+// import { Loader } from "lucide-react";
 import { useGetCallById } from "@/hooks/useGetCallById";
 import Alert from "@/components/Alert";
 import MeetingSetup from "@/components/MettingSetup";
 import MeetingRoom from "@/components/MettingRoom";
 
 const Meeting = () => {
+  // const urlParams = new URLSearchParams(window.location.search);
+  // const callId = urlParams.get("call_id");
+  // const callType = urlParams.get("call_type") || "default";
   const { id } = useParams<{ id: string }>();
   console.log(id);
-  const { isLoaded, user } = useUser();
-  const { call, isCallLoading } = useGetCallById(id || "");
+  // const { isLoaded, user } = useUser();
+  const { call } = useGetCallById(id || "");
   const [isSetupComplete, setIsSetupComplete] = useState(false);
 
-  if (!isLoaded || isCallLoading) return <Loader />;
+  // if (!isLoaded || isCallLoading) return <Loader />;
 
   if (!call)
     return (

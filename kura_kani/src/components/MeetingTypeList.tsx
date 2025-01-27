@@ -57,7 +57,7 @@ const MeetingTypeList = () => {
         navigate(`/meeting/${call.id}`);
       }
       toast({
-        title: "Meeting Created",
+        title: "Meeting Created using new meeting",
       });
     } catch (error) {
       console.error(error);
