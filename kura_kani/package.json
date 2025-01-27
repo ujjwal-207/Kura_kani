@@ -16,7 +16,6 @@
     "@radix-ui/react-slot": "^1.1.1",
     "@radix-ui/react-toast": "^1.2.5",
     "@stream-io/video-react-sdk": "^1.10.6",
-    "@tailwindcss/postcss": "^4.0.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "lucide-react": "^0.474.0",
@@ -29,6 +28,7 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.19.0",
+    "@tailwindcss/postcss": "^4.0.0",
     "@types/node": "^22.10.10",
     "@types/react": "^19.0.8",
     "@types/react-datepicker": "^7.0.0",
