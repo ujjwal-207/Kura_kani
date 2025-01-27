@@ -12,7 +12,7 @@ import Meeting from "./pages/Meeting";
 export default function App() {
   return (
     <div>
-      <Router basename="https://kura-kani-r9ks.onrender.com">
+      <Router>
         <main className="relative">
           <Navbar />
 
