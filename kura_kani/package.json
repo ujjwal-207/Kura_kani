@@ -8,7 +8,7 @@
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "postbuild": "cp _redirects ./dist/"
+    "postbuild": "copy _redirects dist\\"
   },
   "dependencies": {
     "@clerk/clerk-react": "^5.21.1",
