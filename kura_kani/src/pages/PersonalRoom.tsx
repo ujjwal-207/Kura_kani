@@ -50,7 +50,7 @@ const PersonalRoom = () => {
       });
     }
 
-    navigate(`/meeting/${meetingId}?personal=true`);
+    navigate(`/meeting/join?call_id=${meetingId}&&default`);
   };
 
   const meetingLink = `${"https://kura-kani-r9ks.onrender.com/"}meeting/join?call_id=${meetingId}&&default`;
