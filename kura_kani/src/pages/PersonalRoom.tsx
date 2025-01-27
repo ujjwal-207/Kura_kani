@@ -40,6 +40,7 @@ const PersonalRoom = () => {
     if (!client || !user) return;
 
     const newCall = client.call("default", meetingId!);
+    console.log(meetingId!);
 
     if (!call) {
       await newCall.getOrCreate({
@@ -52,12 +53,7 @@ const PersonalRoom = () => {
     navigate(`/meeting/${meetingId}?personal=true`);
   };
 
-  const meetingLink = `${
-    // window.location.hostname === "localhost"
-    //   ? "http://localhost:5173"
-    //   :
-    "https://kura-kani-r9ks.onrender.com/"
-  }meeting/${meetingId}?personal=true`;
+  const meetingLink = `${"https://kura-kani-r9ks.onrender.com/"}meeting/join?call_id=${meetingId}&&default`;
 
   return (
     <section className="flex size-full flex-col gap-10 text-black">

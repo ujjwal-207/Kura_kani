@@ -8,7 +8,6 @@ import PreviousPage from "./pages/Previous";
 import Recordings from "./pages/Recordings";
 import Upcoming from "./pages/Upcoming";
 import Meeting from "./pages/Meeting";
-import "./App.css";
 
 export default function App() {
   return (
