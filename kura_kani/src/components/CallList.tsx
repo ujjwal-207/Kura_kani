@@ -89,7 +89,9 @@ const CallList = ({ type }: { type: "ended" | "upcoming" | "recordings" }) => {
             link={
               type === "recordings"
                 ? (meeting as CallRecording).url
-                : `${import.meta.env.VITE_HOST}/meeting/${(meeting as Call).id}`
+                : `${import.meta.env.VITE_DEPLOYMENT_HOST}/meeting/${
+                    (meeting as Call).id
+                  }`
             }
             buttonIcon1={type === "recordings" ? "/assets/play.png" : undefined}
             buttonText={type === "recordings" ? "Play" : "Start"}

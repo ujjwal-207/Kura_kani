@@ -62,7 +62,9 @@ const MeetingTypeList = () => {
 
   if (!client || !user) return <Loader />;
 
-  const meetingLink = `${import.meta.env.VITE_HOST}/meeting/${callDetail?.id}`;
+  const meetingLink = `${import.meta.env.VITE_DEPLOYMENT_HOST}/meeting/${
+    callDetail?.id
+  }`;
 
   return (
     <section className="grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-4 ">

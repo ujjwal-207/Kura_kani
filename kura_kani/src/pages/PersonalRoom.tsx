@@ -53,7 +53,7 @@ const PersonalRoom = () => {
     navigate(`/meeting/${meetingId}?personal`);
   };
 
-  const meetingLink = `${"https://kura-kani-r9ks.onrender.com/"}meeting/${meetingId}?personal`;
+  const meetingLink = `${"https://kura-kani-main.vercel.app/"}meeting/${meetingId}?personal`;
 
   return (
     <section className="flex size-full flex-col gap-10 text-black">
