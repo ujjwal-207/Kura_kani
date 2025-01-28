@@ -117,20 +117,20 @@ We ❤️ contributions! To contribute:
     git checkout -b feature-name
    ```
 
-4 **Make Changes and Commit**:
+3 **Make Changes and Commit**:
+```bash
+git add .
+git commit -m "Add feature"
+
+    ````
+
+4 **Push to Your Fork**:
 
     ```bash
-        git add .
-        git commit -m "Add feature"
+     git push origin feature-name
     ```
 
-5 **Push to Your Fork**:
-
-    ```bash
-        git push origin feature-name
-    ```
-
-6 Create a Pull Request:
+5 Create a Pull Request:
 
 - Navigate to the original repository and click on New Pull Request.
 
@@ -139,3 +139,7 @@ We ❤️ contributions! To contribute:
 1. Ujjwal – For creating and maintaining this amazing project. 👏
 2. Open Source Community – For inspiring and supporting this project. 🌍
 3. You – For using and contributing to Kura Kani! 💖
+
+```
+
+```
