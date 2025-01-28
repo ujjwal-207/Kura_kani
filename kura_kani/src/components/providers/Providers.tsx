@@ -3,8 +3,8 @@ import { StreamVideoClient, StreamVideo } from "@stream-io/video-react-sdk";
 
 import { Token } from "../Token";
 
-import Loader from "@/components/Loader";
-import { SignIn, useUser } from "@clerk/clerk-react";
+import { useUser } from "@clerk/clerk-react";
+import { SignIn } from "../SignIn";
 
 const apiKey = import.meta.env.VITE_STREAM_PUBLISHABLE_KEY;
 console.log(apiKey);
@@ -43,12 +43,7 @@ const StreamVideoProvider = ({ children }: { children: ReactNode }) => {
   }, [user, isLoaded, fetchToken]);
 
   if (!videoClient) {
-    return (
-      <div className="justify-center ">
-        <SignIn />
-        <Loader />
-      </div>
-    );
+    return <SignIn />;
   }
 
   return <StreamVideo client={videoClient}>{children}</StreamVideo>;
