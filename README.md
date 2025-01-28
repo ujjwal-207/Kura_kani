@@ -1,6 +1,6 @@
 # Kura Kani 🗣️💬
 
-![Kura Kani Banner](https://imgur.com/a/BNQkFqL)
+![Kura Kani Banner](https://asset.cloudinary.com/dtirbbbl7/ef675e01f28f20e563b1cef06bf0d4f1)
 
 Welcome to **Kura Kani** – a platform for meaningful conversations and connections! 🌟 Whether you're here to talk, share ideas, or collaborate, Kura Kani is your space to express yourself. 🚀
 
@@ -108,37 +108,46 @@ We ❤️ contributions! To contribute:
    - Click the **Fork** button at the top of the page.
 
 2. **Clone Your Fork**:
+
    ```bash
    git clone https://github.com/your-username/Kura_kani.git
    cd Kura_kani
    ```
+
    3 **Create a New Branch**:
+
    ```bash
     git checkout -b feature-name
    ```
 
-3 **Make Changes and Commit**:
-```bash
-git add .
-git commit -m "Add feature"
+3. **Make Changes and Commit**:
 
-    ````
+   ```bash
+   git add .
+   git commit -m "Add feature"
+   ```
 
-4 **Push to Your Fork**:
+4. **Push to Your Fork**:
 
-    ```bash
-     git push origin feature-name
-    ```
+   ```bash
+    git push origin feature-name
+   ```
 
-5 Create a Pull Request:
+5. Create a Pull Request:
 
 - Navigate to the original repository and click on New Pull Request.
+
+---
 
 ## Acknowledgements 🙏
 
 1. Ujjwal – For creating and maintaining this amazing project. 👏
 2. Open Source Community – For inspiring and supporting this project. 🌍
 3. You – For using and contributing to Kura Kani! 💖
+
+```
+
+```
 
 ```
 
