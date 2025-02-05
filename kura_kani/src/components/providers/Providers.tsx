@@ -7,7 +7,6 @@ import { useUser } from "@clerk/clerk-react";
 import { SignIn } from "../SignIn";
 
 const apiKey = import.meta.env.VITE_STREAM_PUBLISHABLE_KEY;
-console.log(apiKey);
 
 const StreamVideoProvider = ({ children }: { children: ReactNode }) => {
   const [videoClient, setVideoClient] = useState<StreamVideoClient>();
@@ -21,7 +20,7 @@ const StreamVideoProvider = ({ children }: { children: ReactNode }) => {
 
       try {
         const token = await fetchToken();
-        console.log("token", token);
+
         if (!token) throw new Error("Failed to fetch token");
 
         const client = StreamVideoClient.getOrCreateInstance({
