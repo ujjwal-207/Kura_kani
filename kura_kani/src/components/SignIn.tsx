@@ -20,6 +20,7 @@ export const SignIn = () => {
       <div className="place-items-center   h-[500px] w-[500px] pl-11 ml-[600px] bg-black">
         <div className="pt-7 pb-7">
           <h1 className="text-white font-bold text-xl">Sign In to Continue</h1>
+          <p>It will take some time sorry for that</p>
         </div>
 
         <SignInButton>
